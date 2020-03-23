@@ -1,4 +1,4 @@
-import WebSockIo from "src/index";
+import WebSockIo from "websockio";
 
 let wsio = new WebSockIo("ws://127.0.0.1:3000/socket")
 wsio.emit("replyme", {cool: "cool stuff", number: 88})

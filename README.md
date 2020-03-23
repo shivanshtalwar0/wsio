@@ -17,7 +17,7 @@ Why restrict yourself to socket.io for websocket when you can experience similar
     on(socketEvent: string, listener: EventListener): void;
  
 #### Examples
-    import WebSockIo from "src/index";
+    import WebSockIo from "websockio";
     
     let wsio = new WebSockIo("ws://127.0.0.1:3000/socket")
     wsio.emit("replyme", {cool: "cool stuff", number: 88})
@@ -26,6 +26,7 @@ Why restrict yourself to socket.io for websocket when you can experience similar
         let data = event.details
         console.log(data)
     })
+
     
 
   
