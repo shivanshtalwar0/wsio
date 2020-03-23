@@ -1,6 +1,6 @@
-import Wsio from "../dist/index";
+import WebSocketIo from "../dist/index";
 
-let wsio = new WsIo("ws://127.0.0.1:3000/socket")
+let wsio = new WebSocketIo("ws://127.0.0.1:3000/socket")
 wsio.emit("replyme", {cool: "cool stuff", number: 88})
 wsio.on("hello", (event) => {
     //data property of every event is attached to details on event object

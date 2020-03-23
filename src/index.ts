@@ -1,4 +1,4 @@
-export default class WsIo implements WsIoInterface {
+export default class WebSockIo implements WsIoInterface {
     private readonly url: string;
     private conn: WebSocket;
     private events: { [key: string]: SocketEvent } = {}

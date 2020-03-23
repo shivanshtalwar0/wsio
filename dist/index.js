@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var WsIo = /** @class */ (function () {
-    function WsIo(url) {
+var WebsocketIo = /** @class */ (function () {
+    function WebsocketIo(url) {
         this.events = {};
         this.url = url;
         this.conn = new WebSocket(this.url);
     }
-    WsIo.prototype.close = function () {
+    WebsocketIo.prototype.close = function () {
         this.conn.close();
     };
-    WsIo.prototype.on = function (socketEvent, listener) {
+    WebsocketIo.prototype.on = function (socketEvent, listener) {
         var _this = this;
         this.events[socketEvent] = { eventTarget: new EventTarget(), handler: listener };
         this.conn.onmessage = function (even) {
@@ -23,14 +23,14 @@ var WsIo = /** @class */ (function () {
             _this.events[ev].eventTarget.addEventListener(ev, _this.events[ev].handler);
         });
     };
-    WsIo.prototype.off = function (socketEvent, listener, capture) {
+    WebsocketIo.prototype.off = function (socketEvent, listener, capture) {
         if (capture === void 0) { capture = false; }
         this.events[socketEvent].eventTarget.removeEventListener(socketEvent, listener, { capture: capture });
     };
-    WsIo.prototype.emit = function (socketEvent, data) {
+    WebsocketIo.prototype.emit = function (socketEvent, data) {
         var payload = { event: socketEvent, data: data };
         this.conn.send(JSON.stringify(payload));
     };
-    return WsIo;
+    return WebsocketIo;
 }());
-exports.default = WsIo;
+exports.default = WebsocketIo;
