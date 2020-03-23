@@ -1,4 +1,4 @@
-import WebSocketIo from "../dist/index";
+import WebSocketIo from "src/index";
 
 let wsio = new WebSocketIo("ws://127.0.0.1:3000/socket")
 wsio.emit("replyme", {cool: "cool stuff", number: 88})
@@ -7,3 +7,4 @@ wsio.on("hello", (event) => {
     let data = event.details
     console.log(data)
 })
+
