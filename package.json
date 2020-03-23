@@ -1,0 +1,18 @@
+{
+  "name": "wsio",
+  "version": "1.0.0",
+  "description": "simple wrapper around Browser WebSocket re-implemented with socket.io style highly suitable for ws module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "WebSocket",
+    "ws",
+    "Browser",
+    "Socket.io"
+  ],
+  "author": "Shivansh Talwar",
+  "license": "ISC",
+  "private": false
+}
