@@ -1,3 +1,4 @@
+import "./interface"
 export default class WebSockIo implements WsIoInterface {
     private readonly url: string;
     private conn: WebSocket;

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+require("./interface");
 var WebSockIo = /** @class */ (function () {
     function WebSockIo(url) {
         this.events = {};

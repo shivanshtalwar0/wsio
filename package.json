@@ -1,6 +1,6 @@
 {
   "name": "websockio",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "simple wrapper around Browser WebSocket re-implemented with socket.io style highly suitable for ws module",
   "main": "src/index.ts",
   "scripts": {
