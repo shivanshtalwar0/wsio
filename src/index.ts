@@ -1,7 +1,7 @@
 export default class WebSockIo implements WsIoInterface {
     private readonly url: string;
     private conn: WebSocket;
-    private events: { [key: string]: SocketEvent } = {}
+    private events: { [key: string]: SocketEvent } = {};
 
     constructor(url: string) {
         this.url = url;
