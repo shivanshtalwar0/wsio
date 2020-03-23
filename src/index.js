@@ -28,9 +28,23 @@ var WebSockIo = /** @class */ (function () {
         if (capture === void 0) { capture = false; }
         this.events[socketEvent].eventTarget.removeEventListener(socketEvent, listener, { capture: capture });
     };
+    WebSockIo.prototype.waitForConnectionToOpen = function (socketEvent, data) {
+        var _this = this;
+        this.conn.onopen = function () {
+            _this.emit(socketEvent, data);
+        };
+    };
     WebSockIo.prototype.emit = function (socketEvent, data) {
         var payload = { event: socketEvent, data: data };
-        this.conn.send(JSON.stringify(payload));
+        if (this.conn.readyState == this.conn.OPEN) {
+            this.conn.send(JSON.stringify(payload));
+        }
+        else if (this.conn.readyState == this.conn.CONNECTING) {
+            this.waitForConnectionToOpen(socketEvent, data);
+        }
+        else {
+            throw "Socket Connection Closed :(";
+        }
     };
     return WebSockIo;
 }());
